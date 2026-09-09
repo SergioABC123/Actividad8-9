@@ -21,3 +21,9 @@ def loyalty_discount(points):
     if points < 0:
         raise ValueError("points must be >= 0")
     return 0
+
+
+def free_shipping(subtotal):
+    if subtotal >= 1000:
+        return 0.0
+    return 99.0

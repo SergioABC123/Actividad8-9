@@ -1,6 +1,6 @@
 import unittest
 
-from store import apply_discount, can_checkout, loyalty_discount, shipping_cost
+from store import apply_discount, can_checkout, loyalty_discount, shipping_cost, free_shipping
 
 
 class StoreTests(unittest.TestCase):
@@ -19,6 +19,12 @@ class StoreTests(unittest.TestCase):
 
     def test_loyalty_starts_at_zero(self):
         self.assertEqual(loyalty_discount(0), 0)
+
+    def test_free_shipping(self):
+        self.assertEqual(free_shipping(1000), 0.0)
+
+    def test_regular_shipping_for_small_order(self):
+        self.assertEqual(free_shipping(999.99), 99.0)
 
 
 if __name__ == "__main__":
