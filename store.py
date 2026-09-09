@@ -4,6 +4,8 @@
 def shipping_cost(subtotal):
     if subtotal < 0:
         raise ValueError("subtotal must be >= 0")
+    if subtotal >= 1000:
+        return 0.0
     return 99.0
 
 
@@ -21,9 +23,3 @@ def loyalty_discount(points):
     if points < 0:
         raise ValueError("points must be >= 0")
     return 0
-
-
-def free_shipping(subtotal):
-    if subtotal >= 1000:
-        return 0.0
-    return 99.0
